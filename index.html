@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Lucas Le Calvez</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="site">
+  <div class="container nav">
+    <div class="brand"><span class="dot"></span> <span>Lucas Le Calvez</span></div>
+
+    <nav class="links">
+      <a href="#about">À propos</a>
+      <a href="#work" class="active">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- LinkedIn -->
+    <a class="icon-link" href="https://www.linkedin.com/in/lucas-le-calvez/" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 3.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM3 8h2v13H3V8Zm6 0h2v2h.06C12 8.73 13.51 8 15.2 8 19 8 19 10.5 19 13.9V21h-2v-6.4c0-1.53 0-3.5-2.1-3.5-2.1 0-2.4 1.64-2.4 3.39V21h-2V8Z" />
+      </svg>
+      <span>LinkedIn</span>
+    </a>
+
+    <!-- Instagram -->
+    <a class="icon-link" href="https://www.instagram.com/lucas_le_calvez_pro/" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="3.5" />
+        <circle cx="17.5" cy="6.5" r="1.2" />
+      </svg>
+      <span>Instagram</span>
+    </a>
+
+    <!-- CV PDF -->
+    <a class="icon-link" href="CV-lucas_Le_Calvez.pdf" target="_blank" aria-label="CV">
+      <svg viewBox="0 0 24 24">
+        <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8M8 17h8" />
+      </svg>
+      <span>CV</span>
+    </a>
+
+  </div>
+</header>
+
+
+  <main>
+    <section class="hero-full">
+      <img src="img/photo-Portfolio.png" alt="Portfolio">
+    </section>
+
+
+    <section id="about" class="about container">
+      <h2 class="h2">À propos</h2>
+      <p class="muted">
+        Bonjour, je suis <strong>Lucas Le Calvez</strong>. Originaire de <strong>Paimpol</strong>,
+        je réside maintenant à <strong>Lannion</strong> pour mes études à l’IUT de Lannion.
+      </p>
+      <p>
+        Passionné d’<strong>audiovisuel</strong> et de <strong>modélisation 3D</strong>,
+        j’ai réalisé plusieurs maquettes afin de m’exercer dans ce domaine.
+        Dans le cadre de mes études, je conçois plusieurs <strong>vidéos / films / interviews.</strong> Cela me permet
+        de progresser et d’en apprendre davantage sur le <strong>montage vidéo. </strong>
+      </p>
+      <p>
+        Les personnes avec lesquelles je collabore disent de moi que je suis
+        <strong>à l’écoute</strong>, <strong>sérieux</strong> et <strong>fiable</strong>.
+      </p>
+      <p>
+        Le <strong>BUT MMI</strong> (Métiers du Multimédia et de l’Internet),
+        combinant le <em>marketing</em>, la <em>communication</em>, le <em>développement web</em>
+        et surtout l’<em>audiovisuel</em>, a été une véritable révélation pour moi.
+        C’est donc tout naturellement que je me suis tourné vers cette formation.
+      </p>
+    </section>
+
+    <section id="work" class="container">
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+   <section id="contact" class="contact-section container">
+  <div class="contact-card">
+    <h3>Envoyez-moi un message</h3>
+
+    <form action="https://formspree.io/f/xyzvbglj" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> — Lucas Le Calvez.</div>
+  </footer>
+
+  <script>
+    const CATEGORIES = [
+      { id: "all", label: "Tous" },
+      { id: "3d", label: "3D" },
+      { id: "montage", label: "montage vidéo" },
+      { id: "affiche", label: "Affiche" },
+    ];
+    const PROJECTS = [
+      { title: "Ocean Arctique", slug: "3d-1", cat: ["3d"], cover: "img/glacierVF.jpg" },
+      { title: "Intérieur abandonne", slug: "3d-2", cat: ["3d"], cover: "img/int-VF.png" },
+      { title: "Océan en 3D", slug: "3d-3", cat: ["3d"], cover: "img/ocean.png" },
+      { title: "Ile tropicale", slug: "3d-4", cat: ["3d"], cover: "img/îleVF.png" },
+      { title: "Paysage en cours 🚧", slug: "3d-5", cat: ["3d"], cover: "img/paysage-viewport-solid.png" },
+      { title: "#Court Metrage", slug: "3d-6", cat: ["montage"], cover: "img/court-metrage.png" },
+      { title: "Affiche À l'West Fest", slug: "3d-7", cat: ["affiche"], cover: "img/affiche-ALWestFest.png" },
+      { title: "#Interview en cours 🚧 ", slug: "3d-8", cat: ["montage"], cover: "img/miniatureInterview.png" },
+
+    ];
+    const $filters = document.getElementById('filters');
+    const $grid = document.getElementById('grid');
+    function renderFilters(active = 'all') {
+      $filters.innerHTML = '';
+      CATEGORIES.forEach(cat => {
+        const b = document.createElement('button');
+        b.className = 'filter-btn' + (active === cat.id ? ' active' : '');
+        b.textContent = cat.label;
+        b.onclick = () => renderGrid(cat.id);
+        $filters.appendChild(b);
+      });
+    }
+    function renderGrid(active = 'all') {
+      renderFilters(active);
+      const items = PROJECTS.filter(p => active === 'all' ? true : p.cat.includes(active));
+      $grid.innerHTML = '';
+      items.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = '<img alt="' + p.title + '" src="' + p.cover + '" loading="lazy"/>' +
+          '<div class="p"><div class="t">' + p.title + '</div><div class="c">' + p.cat.join(' • ') + '</div></div>';
+        card.onclick = () => location.href = 'projects/' + p.slug + '.html';
+        $grid.appendChild(card);
+      });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderGrid('all');
+  </script>
+</body>
+
+</html>
