@@ -11,45 +11,46 @@
 
 <body>
   <header class="site">
-  <div class="container nav">
-    <div class="brand"><span class="dot"></span> <span>Lucas Le Calvez</span></div>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span> <span>Lucas Le Calvez</span></div>
 
-    <nav class="links">
-      <a href="#about">À propos</a>
-      <a href="#work" class="active">Projets</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <nav class="links">
+        <a href="#about">À propos</a>
+        <a href="#work" class="active">Projets</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    <!-- LinkedIn -->
-    <a class="icon-link" href="https://www.linkedin.com/in/lucas-le-calvez/" target="_blank" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24">
-        <path d="M4 3.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM3 8h2v13H3V8Zm6 0h2v2h.06C12 8.73 13.51 8 15.2 8 19 8 19 10.5 19 13.9V21h-2v-6.4c0-1.53 0-3.5-2.1-3.5-2.1 0-2.4 1.64-2.4 3.39V21h-2V8Z" />
-      </svg>
-      <span>LinkedIn</span>
-    </a>
+      <!-- LinkedIn -->
+      <a class="icon-link" href="https://www.linkedin.com/in/lucas-le-calvez/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M4 3.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM3 8h2v13H3V8Zm6 0h2v2h.06C12 8.73 13.51 8 15.2 8 19 8 19 10.5 19 13.9V21h-2v-6.4c0-1.53 0-3.5-2.1-3.5-2.1 0-2.4 1.64-2.4 3.39V21h-2V8Z" />
+        </svg>
+        <span>LinkedIn</span>
+      </a>
 
-    <!-- Instagram -->
-    <a class="icon-link" href="https://www.instagram.com/lucas_le_calvez_pro/" target="_blank" aria-label="Instagram">
-      <svg viewBox="0 0 24 24">
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="3.5" />
-        <circle cx="17.5" cy="6.5" r="1.2" />
-      </svg>
-      <span>Instagram</span>
-    </a>
+      <!-- Instagram -->
+      <a class="icon-link" href="https://www.instagram.com/lucas_le_calvez_pro/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="3.5" />
+          <circle cx="17.5" cy="6.5" r="1.2" />
+        </svg>
+        <span>Instagram</span>
+      </a>
 
-    <!-- CV PDF -->
-    <a class="icon-link" href="CV_Lucas Le Calvez-V2.pdf" target="_blank" aria-label="CV">
-      <svg viewBox="0 0 24 24">
-        <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" />
-        <path d="M14 2v6h6" />
-        <path d="M8 13h8M8 17h8" />
-      </svg>
-      <span>CV</span>
-    </a>
+      <!-- CV PDF -->
+      <a class="icon-link" href="CV_Lucas Le Calvez-V2.pdf" target="_blank" aria-label="CV">
+        <svg viewBox="0 0 24 24">
+          <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" />
+          <path d="M14 2v6h6" />
+          <path d="M8 13h8M8 17h8" />
+        </svg>
+        <span>CV</span>
+      </a>
 
-  </div>
-</header>
+    </div>
+  </header>
 
 
   <main>
@@ -82,23 +83,62 @@
       </p>
     </section>
 
-    <section id="work" class="container">
-      <div class="filters" id="filters"></div>
-      <div class="grid" id="grid"></div>
-    </section>
+   <section class="skills-band container">
+  <h2 class="h2">Mes compétences</h2>
 
-   <section id="contact" class="contact-section container">
-  <div class="contact-card">
-    <h3>Envoyez-moi un message</h3>
+  <div class="logo-marquee" aria-label="Logos des logiciels maîtrisés">
+    <div class="logo-track">
+      <!-- 1ère liste -->
+     <img src="img/blender.png" alt="Blender" loading="lazy">
+<img src="img/premiere-pro.png" alt="Adobe Premiere Pro" loading="lazy">
+<img src="img/DaVinci_Resolve.png" alt="DaVinci Resolve" loading="lazy">
+<img src="img/figma.png" alt="Figma" loading="lazy">
+<img src="img/Affinity_designer.png" alt="Affinity Designer" loading="lazy">
+<img src="img/affinity-photo.png" alt="Affinity Photo" loading="lazy">
+<img src="img/photoshop.png" alt="Adobe Photoshop" loading="lazy">
+<img src="img/illustrator.png" alt="Adobe Illustrator" loading="lazy">
+<img src="img/canva.png" alt="Canva" loading="lazy">
+<img src="img/vsCode.svg.png" alt="Visual Studio Code" loading="lazy">
+<img src="img/capcut.jpg" alt="CapCut" loading="lazy">
 
-    <form action="https://formspree.io/f/xyzvbglj" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <textarea name="message" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
+      <!-- 2ème liste (duplication pour boucle infinie) -->
+     <img src="img/blender.png" alt="Blender"  aria-hidden="true">
+<img src="img/premiere-pro.png" alt="Adobe Premiere Pro"  aria-hidden="true">
+<img src="img/DaVinci_Resolve.png" alt="DaVinci Resolve"  aria-hidden="true">
+<img src="img/figma.png" alt="Figma"  aria-hidden="true">
+<img src="img/Affinity_designer.png" alt="Affinity Designer"  aria-hidden="true">
+<img src="img/affinity-photo.png" alt="Affinity Photo"  aria-hidden="true">
+<img src="img/photoshop.png" alt="Adobe Photoshop"  aria-hidden="true">
+<img src="img/illustrator.png" alt="Adobe Illustrator"  aria-hidden="true">
+<img src="img/canva.png" alt="Canva"  aria-hidden="true">
+<img src="img/vsCode.svg.png" alt="Visual Studio Code"  aria-hidden="true">
+<img src="img/capcut.jpg" alt="CapCut"  aria-hidden="true">
+    </div>
   </div>
 </section>
+
+
+
+
+
+
+          <section id="work" class="container">
+            <div class="filters" id="filters"></div>
+            <div class="grid" id="grid"></div>
+          </section>
+
+          <section id="contact" class="contact-section container">
+            <div class="contact-card">
+              <h3>Envoyez-moi un message</h3>
+
+              <form action="https://formspree.io/f/xyzvbglj" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <textarea name="message" placeholder="Votre message" required></textarea>
+                <button type="submit">Envoyer</button>
+              </form>
+            </div>
+          </section>
 
   </main>
 
@@ -122,7 +162,7 @@
       { title: "Court Metrage", slug: "3d-6", cat: ["montage"], cover: "img/Court-metrage.png" },
       { title: "Affiche À l'West Fest", slug: "3d-7", cat: ["affiche"], cover: "img/affiche-ALWestFest.png" },
       { title: "Interview Lannion Coeur de Ville ", slug: "3d-8", cat: ["montage"], cover: "img/miniature-ITW.png" },
-       { title: "Iphone ", slug: "3d-9", cat: ["3d"], cover: "img/Iphone.png" },
+      { title: "Iphone ", slug: "3d-9", cat: ["3d"], cover: "img/Iphone.png" },
 
     ];
     const $filters = document.getElementById('filters');
