@@ -178,24 +178,45 @@ header.site {
   border: none;
   color: var(--muted);
   padding: 8px 10px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  position: relative
+  position: relative;
+  font-size: 16px;
 }
 
-.filter-btn.active {
-  color: var(--text)
-}
-
-.filter-btn.active::after {
+/* underline présent pour TOUS (mais invisible par défaut) */
+.filter-btn::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -2px;
   width: 100%;
   height: 2px;
-  background: var(--accent)
+  background: var(--text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
 }
+
+/* hover */
+.filter-btn:hover {
+  color: var(--text);
+}
+
+.filter-btn:hover::after {
+  transform: scaleX(1);
+}
+
+/* actif */
+.filter-btn.active {
+  color: var(--text);
+}
+
+.filter-btn.active::after {
+  transform: scaleX(1);
+}
+
+
 
 .grid {
   display: grid;
@@ -360,7 +381,7 @@ header.site {
   position: relative;
   background: none;
   border: none;
-  color: var(--text);
+  color: var(--accent);
   cursor: pointer;
   font-weight: 700;
 }
