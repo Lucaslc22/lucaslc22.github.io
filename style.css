@@ -691,5 +691,10 @@ button:hover span:not(:nth-child(6)) {
   transition: 1.5s ease;
 }
 
+a > button{
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
 
   
