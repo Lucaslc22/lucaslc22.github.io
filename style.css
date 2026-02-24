@@ -60,27 +60,6 @@ header.site {
 .hero-full::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 140px; /* hauteur du dégradé */
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0)
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero-full img {
-  position: relative;
-  z-index: 0;
-}
-
-.hero-full::before {
-  content: "";
-  position: absolute;
   inset: 0;
   z-index: 1;
 }
@@ -124,12 +103,6 @@ header.site {
 .links {
   display: flex;
   gap: 18px
-}
-
-.links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 600
 }
 
 .links a:hover,
