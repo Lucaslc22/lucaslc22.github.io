@@ -320,8 +320,10 @@ header.site {
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(47, 62, 52, 0.10);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 
+    0 25px 60px rgba(0,0,0,.18),
+    0 8px 20px rgba(73,104,166,.15);
 }
 
 
@@ -770,14 +772,56 @@ a > button{
 
   /* ===== Scroll reveal animation ===== */
 
+/* ===== Scroll reveal — version accentuée ===== */
+
+/* ===== Scroll reveal — EXPERIMENTAL ===== */
+
+/* ===== ULTIMATE SCROLL REVEAL ===== */
+
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity .8s ease, transform .8s ease;
-  will-change: opacity, transform;
+  transform: translateY(140px) scale(.88) rotateX(8deg);
+  filter: blur(14px);
+  transition:
+    opacity 1.4s cubic-bezier(.16,1,.3,1),
+    transform 1.4s cubic-bezier(.16,1,.3,1),
+    filter 1.4s cubic-bezier(.16,1,.3,1);
+  transform-origin: center top;
+  will-change: opacity, transform, filter;
+}
+
+.reveal-left {
+  transform: translateX(-160px) scale(.88) rotate(-3deg);
+}
+
+.reveal-right {
+  transform: translateX(160px) scale(.88) rotate(3deg);
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+  filter: blur(0);
+}
+
+.card.reveal {
+  transform: translateY(120px) scale(.85);
+}
+
+.card.reveal.visible:nth-child(1) { transition-delay: .05s; }
+.card.reveal.visible:nth-child(2) { transition-delay: .12s; }
+.card.reveal.visible:nth-child(3) { transition-delay: .18s; }
+.card.reveal.visible:nth-child(4) { transition-delay: .25s; }
+.card.reveal.visible:nth-child(5) { transition-delay: .32s; }
+.card.reveal.visible:nth-child(6) { transition-delay: .4s; }
+
+.hero-full img {
+  transition: transform .1s linear;
+  will-change: transform;
+}
+
+header.site.scrolled {
+  backdrop-filter: blur(14px);
+  background: rgba(242, 233, 216, 0.75);
+  transition: all .4s ease;
 }

@@ -211,12 +211,40 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // optionnel : une fois visible, on stop
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.05 });
 
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach((el, index) => {
+    if (index % 2 === 0) {
+      el.classList.add('reveal-left');
+    } else {
+      el.classList.add('reveal-right');
+    }
+    observer.observe(el);
+  });
+</script>
+
+<script>
+  const heroImg = document.querySelector('.hero-full img');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    heroImg.style.transform = `scale(1.05) translateY(${scrollY * 0.15}px)`;
+  });
+</script>
+
+<script>
+  const header = document.querySelector('header.site');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 </script>
 
 </body>
