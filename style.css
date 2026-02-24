@@ -180,6 +180,10 @@ header.site {
   font-weight: 600
 }
 
+.project-content {
+  margin: 20px auto 120px auto;
+}
+
 .title {
   font-weight: 900;
   letter-spacing: -0.04em;
