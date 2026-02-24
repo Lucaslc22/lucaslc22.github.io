@@ -92,9 +92,29 @@ header.site {
   transition: .25s ease;
 }
 
-.links a:hover,
-.links a.active {
-  color: #F2C36B; /* sable au hover */
+
+
+/* Underline animé */
+.links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #F288A4;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.links a:hover::after {
+  transform: scaleX(1);
 }
 
 .icon-link {
@@ -121,11 +141,6 @@ header.site {
 .links {
   display: flex;
   gap: 18px
-}
-
-.links a:hover,
-.links a.active {
-  color: var(--text)
 }
 
 .hero-full {
