@@ -1,19 +1,27 @@
 :root {
-  --bg: #FAF9F6;
-  /* fond clair chaud */
-  --bg-grad: linear-gradient(180deg, #FAF9F6 0%, #EDE6DB 100%);
-  --text: #2F3E34;
-  /* texte principal */
-  --muted: #6B8F71;
-  /* texte secondaire */
-  --card: #FFFFFF;
-  /* cartes */
-  --card2: #F4EFE6;
-  /* léger ton chaud pour dégradés */
-  --accent: #F4A261;
-  /* accent solaire */
-  --line: rgba(47, 62, 52, 0.12);
-  /* bordures */
+  --bg: #F2E9D8; 
+  /* fond principal crème */
+
+  --bg-grad: linear-gradient(180deg, #F2E9D8 0%, #F2C36B 100%);
+  /* dégradé sable chaud */
+
+  --text: #4968A6; 
+  /* bleu profond pour texte principal */
+
+  --muted: #3FBFBF; 
+  /* turquoise secondaire */
+
+  --card: #FFFFFF; 
+  /* cartes blanches */
+
+  --card2: #F2E9D8; 
+  /* variante douce */
+
+  --accent: #F288A4; 
+  /* rose vintage accent */
+
+  --line: rgba(73, 103, 165, 0.15); 
+  /* bordures basées sur le bleu */
 }
 
 * {
