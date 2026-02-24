@@ -9,22 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 
-<script>
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  reveals.forEach(el => observer.observe(el));
-</script>
-
 <body>
   <header class="site">
     <div class="container nav">
@@ -209,7 +193,7 @@
       $grid.innerHTML = '';
       items.forEach(p => {
         const card = document.createElement('article');
-        card.className = 'card';
+        card.className = 'card reveal';
         card.innerHTML = '<img alt="' + p.title + '" src="' + p.cover + '" loading="lazy"/>' +
           '<div class="p"><div class="t">' + p.title + '</div><div class="c">' + p.cat.join(' • ') + '</div></div>';
         card.onclick = () => location.href = 'projects/' + p.slug + '.html';
@@ -219,6 +203,21 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     renderGrid('all');
   </script>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // optionnel : une fois visible, on stop
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
 
 </body>
 
