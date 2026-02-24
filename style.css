@@ -241,8 +241,16 @@ header.site {
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 38px 0 16px
+  gap: 1px;
+  margin: 10px 0 8px; /* beaucoup plus compact */
+}
+
+#work {
+  margin-top: 10px;
+}
+
+.grid {
+  margin-top: 5px;
 }
 
 .filter-btn {
@@ -287,7 +295,6 @@ header.site {
 .filter-btn.active::after {
   transform: scaleX(1);
 }
-
 
 
 .grid {
@@ -804,7 +811,7 @@ a > button{
   filter: blur(0);
 }
 
-.card.reveal {
+.card.reveal:not(.visible) {
   transform: translateY(120px) scale(.85);
 }
 
@@ -816,7 +823,6 @@ a > button{
 .card.reveal.visible:nth-child(6) { transition-delay: .4s; }
 
 .hero-full img {
-  transition: transform .1s linear;
   will-change: transform;
 }
 
