@@ -916,3 +916,101 @@ header.site .container{
     gap: 14px;
   }
 }
+
+/* ===== CV Flower Button (namespaced: cvf-) ===== */
+.cvf-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top: 22px;  /* espace après la bio */
+}
+
+.cvf-btn{
+  height: 4em;
+  width: 12em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position: relative;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cvf-label{
+  font-size: 16px;
+  font-weight: 800;
+  z-index: 2;
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 10px;
+  background: rgba(242, 233, 216, 0.78); /* crème */
+  border: 1px solid rgba(73,103,165,0.18);
+  backdrop-filter: blur(10px);
+  transition: all .45s ease;
+}
+
+.cvf-flower{
+  display: grid;
+  grid-template-columns: 1em 1em;
+  position: absolute;
+  transition: grid-template-columns .8s ease;
+  z-index: 1;
+}
+
+.cvf-flower1 { top:-12px; left:-13px; transform: rotate(5deg); }
+.cvf-flower2 { bottom:-5px; left: 8px; transform: rotate(35deg); }
+.cvf-flower3 { bottom:-15px; transform: rotate(0deg); }
+.cvf-flower4 { top:-14px; transform: rotate(15deg); }
+.cvf-flower5 { right:11px; top:-3px; transform: rotate(25deg); }
+.cvf-flower6 { right:-15px; bottom:-15px; transform: rotate(30deg); }
+
+.cvf-petal{
+  height: 1em;
+  width: 1em;
+  border-radius: 40% 70% / 7% 90%;
+  /* Couleurs DA : turquoise -> sable */
+  background: linear-gradient(var(--text), #F2C36B);
+  border: 0.5px solid #4968A6;
+  transition: width .8s ease, height .8s ease, filter .35s ease;
+}
+
+.cvf-petal.two{ transform: rotate(90deg); }
+.cvf-petal.three{ transform: rotate(270deg); }
+.cvf-petal.four{ transform: rotate(180deg); }
+
+/* Hover */
+.cvf-btn:hover .cvf-petal{
+  background: linear-gradient(var(--text), var(--accent)); /* bleu -> rose */
+  border: 0.5px solid rgba(242,136,164,0.55);
+}
+
+.cvf-btn:hover .cvf-flower{
+  grid-template-columns: 1.5em 1.5em;
+}
+
+.cvf-btn:hover .cvf-flower .cvf-petal{
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.cvf-btn:hover .cvf-label{
+  background: rgba(242, 233, 216, 0.55);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+}
+
+/* Rotations */
+.cvf-btn:hover .cvf-flower1 { animation: cvf-rot1 15s linear infinite; }
+.cvf-btn:hover .cvf-flower2 { animation: cvf-rot2 13s linear infinite; }
+.cvf-btn:hover .cvf-flower3 { animation: cvf-rot3 16s linear infinite; }
+.cvf-btn:hover .cvf-flower4 { animation: cvf-rot4 17s linear infinite; }
+.cvf-btn:hover .cvf-flower5 { animation: cvf-rot5 20s linear infinite; }
+.cvf-btn:hover .cvf-flower6 { animation: cvf-rot6 15s linear infinite; }
+
+@keyframes cvf-rot1 { from{ transform: rotate(5deg); } to{ transform: rotate(365deg); } }
+@keyframes cvf-rot2 { from{ transform: rotate(35deg); } to{ transform: rotate(-325deg); } }
+@keyframes cvf-rot3 { from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
+@keyframes cvf-rot4 { from{ transform: rotate(15deg); } to{ transform: rotate(375deg); } }
+@keyframes cvf-rot5 { from{ transform: rotate(25deg); } to{ transform: rotate(-335deg); } }
+@keyframes cvf-rot6 { from{ transform: rotate(30deg); } to{ transform: rotate(390deg); } }
