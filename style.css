@@ -35,6 +35,10 @@ body {
   line-height: 1.5;
 }
 
+.project-back {
+  margin-top: 140px; /* descend le bouton sous le header */
+  margin-left: 24px;
+}
 
 .container {
   max-width: 1200px;
@@ -703,7 +707,7 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: white;
-  background-color: #2F3E34;
+  background-color: #4968A6;
   padding: 1em 2em;
   border: none;
   border-radius: .6rem;
@@ -719,7 +723,7 @@ button span:not(:nth-child(6)) {
   transform: translate(-50%, -50%);
   height: 30px;
   width: 30px;
-  background-color: #F4A261;
+  background-color: #F2C36B;
   border-radius: 50%;
   transition: .6s ease;
 }
