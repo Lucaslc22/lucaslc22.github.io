@@ -386,6 +386,14 @@ header.site {
 }
 
 @media (max-width: 800px) {
+
+
+  .socials{
+    margin-left: 0;            /* on annule le "auto" */
+    width: 100%;
+    justify-content: flex-end; /* les pousse à droite */
+  }
+
   .nav {
     flex-wrap: wrap;
     justify-content: center;
@@ -863,4 +871,48 @@ header.site.scrolled {
   clip:rect(0,0,0,0);
   white-space:nowrap;
   border:0;
+}
+
+
+/* =========================
+   FIX HEADER GRAND ÉCRAN
+   (socials plus à droite)
+   ========================= */
+header.site .container{
+  max-width: none;     /* le header utilise toute la largeur */
+  padding: 0 32px;     /* marge latérale (ajuste si tu veux) */
+}
+
+/* =========================
+   FIX RESPONSIVE (<800px)
+   Logo gauche / socials droite
+   Menu en dessous
+   ========================= */
+@media (max-width: 800px){
+  .nav{
+    flex-wrap: wrap;
+    justify-content: space-between; /* au lieu de center */
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .brand{ 
+    order: 1; 
+  }
+
+  .socials{
+    order: 2;
+    width: auto;          /* IMPORTANT : pas 100% */
+    margin-left: auto;    /* pousse à droite */
+    justify-content: flex-end;
+    gap: 10px;            /* rapproche encore un peu */
+  }
+
+  .links{
+    order: 3;
+    width: 100%;
+    justify-content: center; /* menu centré sur sa ligne */
+    gap: 14px;
+  }
 }
