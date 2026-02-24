@@ -84,6 +84,13 @@ header.site {
   /* important */
 }
 
+.socials {
+  display: flex;
+  gap: 12px; /* espace entre les 3 */
+  margin-left: auto; /* pousse tout à droite */
+  align-items: center;
+}
+
 /* ===== Couleurs du header (UNE SEULE SOURCE) ===== */
 .links a {
   color: #4968A6; /* bleu fort */
