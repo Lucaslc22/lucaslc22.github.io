@@ -67,6 +67,7 @@ header.site {
 .brand img {
   height: 52px;
   transition: transform .25s ease;
+  margin-left: 12px;
 }
 
 .brand img:hover {
