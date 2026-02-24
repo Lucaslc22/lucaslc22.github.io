@@ -153,114 +153,109 @@
     <div class="container">© <span id="year"></span> — Lucas Le Calvez.</div>
   </footer>
 
-  <script>
-    const CATEGORIES = [
-      { id: "all", label: "Tous" },
-      { id: "3D", label: "3D" },
-      { id: "Montage", label: "Montage vidéo" },
-      { id: "affiche", label: "Affiche" },
-      { id: "article", label: "Article" },
-    ];
-    const PROJECTS = [
-      { title: "Ocean Arctique", slug: "3d-1", cat: ["3D"], cover: "img/glacierVF.jpg" },
-      { title: "Intérieur abandonne", slug: "3d-2", cat: ["3D"], cover: "img/int-VF.png" },
-      { title: "Océan en 3D", slug: "3d-3", cat: ["3D"], cover: "img/ocean.png" },
-      { title: "Ile tropicale", slug: "3d-4", cat: ["3D"], cover: "img/îleVF.png" },
-      { title: "Paysage en cours 🚧", slug: "3d-5", cat: ["3D"], cover: "img/paysage-viewport-solid.png" },
-      { title: "Court Metrage", slug: "3d-6", cat: ["Montage"], cover: "img/Court-metrage.png" },
-      { title: "Affiche À l'West Fest", slug: "3d-7", cat: ["affiche"], cover: "img/affiche-ALWestFest.png" },
-      { title: "Interview Lannion Coeur de Ville ", slug: "3d-8", cat: ["Montage"], cover: "img/miniature-ITW.png" },
-      { title: "Iphone ", slug: "3d-9", cat: ["3D"], cover: "img/Iphone.png" },
-      { title: "Interview deMMaIn", slug: "3d-10", cat: ["Montage"], cover: "img/miniature-deMMaIn.png" },
-      { title: "Diorama", slug: "3d-11", cat: ["3D"], cover: "img/Miniature-Diorama.png" },
-      { title: "UrbanBall", slug: "3d-12", cat: ["3D", "article"], cover: "img/Miniature-UrbanBall.png" },
-
-    ];
-    const $filters = document.getElementById('filters');
-    const $grid = document.getElementById('grid');
-    function renderFilters(active = 'all') {
-      $filters.innerHTML = '';
-      CATEGORIES.forEach(cat => {
-        const b = document.createElement('button');
-        b.className = 'filter-btn' + (active === cat.id ? ' active' : '');
-        b.textContent = cat.label;
-        b.onclick = () => renderGrid(cat.id);
-        $filters.appendChild(b);
-      });
-    }
-    function renderGrid(active = 'all') {
-      renderFilters(active);
-      const items = PROJECTS.filter(p => active === 'all' ? true : p.cat.includes(active));
-      $grid.innerHTML = '';
-      items.forEach(p => {
-        const card = document.createElement('article');
-        card.className = 'card reveal';
-        card.innerHTML = '<img alt="' + p.title + '" src="' + p.cover + '" loading="lazy"/>' +
-          '<div class="p"><div class="t">' + p.title + '</div><div class="c">' + p.cat.join(' • ') + '</div></div>';
-        card.onclick = () => location.href = 'projects/' + p.slug + '.html';
-        $grid.appendChild(card);
-        observer.observe(card);
-      });
-    }
-    document.getElementById('year').textContent = new Date().getFullYear();
-    renderGrid('all');
-  </script>
-
-  <script>
-    function observeRevealElements() {
-      const reveals = document.querySelectorAll('.reveal');
-      reveals.forEach((el, index) => {
-        if (index % 2 === 0) el.classList.add('reveal-left');
-        else el.classList.add('reveal-right');
-        observer.observe(el);
-      });
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.05, rootMargin: "0px 0px -10% 0px" });
-
-    function observeRevealElements() {
-      const reveals = document.querySelectorAll('.reveal');
-
-      reveals.forEach((el, index) => {
-        if (index % 2 === 0) el.classList.add('reveal-left');
-        else el.classList.add('reveal-right');
-
-        observer.observe(el);
-      });
-    }
-
-    // On lance au chargement
-    observeRevealElements();
-  </script>
-
-  <script>
-    const heroImg = document.querySelector('.hero-full img');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      heroImg.style.transform = `translateY(${scrollY * 0.12}px)`;
+ <script>
+  // ===== REVEAL / OBSERVER =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+      else entry.target.classList.remove('visible'); // rejoue en remontant
     });
-  </script>
+  }, { threshold: 0.05, rootMargin: "0px 0px -10% 0px" });
 
-  <script>
-    const header = document.querySelector('header.site');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+  function observeRevealElements(scope = document) {
+    const reveals = scope.querySelectorAll('.reveal');
+    reveals.forEach((el, index) => {
+      el.classList.toggle('reveal-left', index % 2 === 0);
+      el.classList.toggle('reveal-right', index % 2 !== 0);
+      observer.observe(el);
     });
-  </script>
+  }
+
+  // ===== DATA =====
+  const CATEGORIES = [
+    { id: "all", label: "Tous" },
+    { id: "3D", label: "3D" },
+    { id: "Montage", label: "Montage vidéo" },
+    { id: "affiche", label: "Affiche" },
+    { id: "article", label: "Article" },
+  ];
+
+  const PROJECTS = [
+    { title: "Ocean Arctique", slug: "3d-1", cat: ["3D"], cover: "img/glacierVF.jpg" },
+    { title: "Intérieur abandonne", slug: "3d-2", cat: ["3D"], cover: "img/int-VF.png" },
+    { title: "Océan en 3D", slug: "3d-3", cat: ["3D"], cover: "img/ocean.png" },
+    { title: "Ile tropicale", slug: "3d-4", cat: ["3D"], cover: "img/îleVF.png" },
+    { title: "Paysage en cours 🚧", slug: "3d-5", cat: ["3D"], cover: "img/paysage-viewport-solid.png" },
+    { title: "Court Metrage", slug: "3d-6", cat: ["Montage"], cover: "img/Court-metrage.png" },
+    { title: "Affiche À l'West Fest", slug: "3d-7", cat: ["affiche"], cover: "img/affiche-ALWestFest.png" },
+    { title: "Interview Lannion Coeur de Ville", slug: "3d-8", cat: ["Montage"], cover: "img/miniature-ITW.png" },
+    { title: "Iphone", slug: "3d-9", cat: ["3D"], cover: "img/Iphone.png" },
+    { title: "Interview deMMaIn", slug: "3d-10", cat: ["Montage"], cover: "img/miniature-deMMaIn.png" },
+    { title: "Diorama", slug: "3d-11", cat: ["3D"], cover: "img/Miniature-Diorama.png" },
+    { title: "UrbanBall", slug: "3d-12", cat: ["3D", "article"], cover: "img/Miniature-UrbanBall.png" },
+  ];
+
+  // ===== DOM =====
+  const $filters = document.getElementById('filters');
+  const $grid = document.getElementById('grid');
+
+  function renderFilters(active = 'all') {
+    $filters.innerHTML = '';
+    CATEGORIES.forEach(cat => {
+      const b = document.createElement('button');
+      b.className = 'filter-btn' + (active === cat.id ? ' active' : '');
+      b.textContent = cat.label;
+      b.addEventListener('click', () => renderGrid(cat.id));
+      $filters.appendChild(b);
+    });
+  }
+
+  function renderGrid(active = 'all') {
+    renderFilters(active);
+
+    const items = PROJECTS.filter(p => active === 'all' ? true : p.cat.includes(active));
+    $grid.innerHTML = '';
+
+    items.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'card reveal';
+
+      card.innerHTML =
+        '<img alt="' + p.title + '" src="' + p.cover + '" loading="lazy"/>' +
+        '<div class="p"><div class="t">' + p.title + '</div><div class="c">' + p.cat.join(' • ') + '</div></div>';
+
+      card.addEventListener('click', () => {
+        location.href = 'projects/' + p.slug + '.html';
+      });
+
+      $grid.appendChild(card);
+    });
+
+    // IMPORTANT : on observe les nouvelles cards créées
+    observeRevealElements($grid);
+  }
+
+  // ===== INIT =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+  observeRevealElements();     // observe les sections déjà présentes
+  renderGrid('all');           // affiche "Tous" au chargement + observe les cards
+
+  // ===== HERO PARALLAX =====
+  const heroImg = document.querySelector('.hero-full img');
+  if (heroImg) {
+    window.addEventListener('scroll', () => {
+      heroImg.style.transform = `translateY(${window.scrollY * 0.12}px)`;
+    });
+  }
+
+  // ===== HEADER SCROLL =====
+  const header = document.querySelector('header.site');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 80);
+    });
+  }
+</script>
 
 </body>
 
