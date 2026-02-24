@@ -2,7 +2,7 @@
   --bg: #F2E9D8; 
   /* fond principal crème */
 
-  --bg-grad: linear-gradient(180deg, #F2E9D8 0%, #F2C36B 100%);
+  --bg-grad: #F2E9D8;
   /* dégradé sable chaud */
 
   --text: #4968A6; 
@@ -64,19 +64,13 @@ header.site {
 }
 
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800
+.brand img {
+  height: 52px;
+  transition: transform .25s ease;
 }
 
-.brand .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 24px var(--accent);
+.brand img:hover {
+  transform: scale(1.04);
 }
 
 .links {
