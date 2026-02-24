@@ -35,8 +35,9 @@ body {
   line-height: 1.5;
 }
 
-.project-back {
-  margin-top: 140px; /* descend le bouton sous le header */
+.project-back{
+  display: inline-block;         /* IMPORTANT sinon margin-top ne marche pas */
+  margin-top: 100px;             /* ajuste (ex: 180px si tu veux plus bas) */
   margin-left: 24px;
 }
 
