@@ -209,19 +209,19 @@
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      // Ajoute visible quand on voit l'élément
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+      } else {
+        // Retire visible quand on ne le voit plus -> l'animation rejoue en remontant
+        entry.target.classList.remove('visible');
       }
     });
-  }, { threshold: 0.05 });
+  }, { threshold: 0.05, rootMargin: "0px 0px -10% 0px" });
 
   reveals.forEach((el, index) => {
-    if (index % 2 === 0) {
-      el.classList.add('reveal-left');
-    } else {
-      el.classList.add('reveal-right');
-    }
+    if (index % 2 === 0) el.classList.add('reveal-left');
+    else el.classList.add('reveal-right');
     observer.observe(el);
   });
 </script>
