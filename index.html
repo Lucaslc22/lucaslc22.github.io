@@ -9,6 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
 <body>
   <header class="site">
     <div class="container nav">
@@ -66,7 +82,7 @@
     </section>
 
 
-    <section id="about" class="about container">
+    <section id="about" class="about container reveal">
       <h2 class="h2">À propos</h2>
       <p class="muted">
         Bonjour, je suis <strong>Lucas Le Calvez</strong>. Originaire de <strong>Paimpol</strong>,
@@ -90,7 +106,7 @@
       </p>
     </section>
 
-    <section id="Compétences" class="skills-band container">
+    <section id="Compétences" class="skills-band container reveal">
       <h2 class="h2">Mes compétences</h2>
 
       <div class="logo-marquee" aria-label="Logos des logiciels maîtrisés">
@@ -124,16 +140,16 @@
       </div>
     </section>
 
-    <section class="skills-band container">
+    <section class="skills-band container reveal">
       <h2 class="h2">Mes projets</h2>
 
-      <section id="work" class="container">
+      <section id="work" class="container reveal">
         <div class="filters" id="filters"></div>
         <div class="grid" id="grid"></div>
       </section>
     </section>
 
-    <section id="contact" class="contact-section container">
+    <section id="contact" class="contact-section container reveal">
       <div class="contact-card">
         <h3>Envoyez-moi un message</h3>
 
