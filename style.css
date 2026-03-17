@@ -1217,7 +1217,7 @@ header.site .container{
    FIX ENTIÈREMENT RESPONSIVE (< 600px)
    Ajustements globaux pour mobiles
    ========================= */
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   /* Composants globaux & Header */
   .brand img {
     height: 40px;
